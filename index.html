@@ -4,104 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Misión Secreta #001 🛡️💚</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
         body {
-            background: linear-gradient(135deg, #09030c 0%, #1a0518 40%, #300619 100%);
+            background-color: #1a0518;
+            margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            font-family: Arial, sans-serif;
         }
-
         .card {
-            background: #120716;
+            background-color: #120716;
             border: 3px solid #e01e84;
-            padding: 40px 30px;
-            border-radius: 28px;
-            box-shadow: 0 0 35px rgba(224, 30, 132, 0.4);
-            max-width: 400px;
-            width: 90%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        .badge {
-            background: #556b2f;
-            color: #fff;
-            padding: 5px 15px;
+            padding: 30px;
             border-radius: 20px;
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
+            text-align: center;
+            color: #ffffff;
+            max-width: 380px;
+            width: 90%;
+            box-shadow: 0 0 25px rgba(224, 30, 132, 0.4);
+        }
+        .badge {
+            background-color: #556b2f;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
             text-transform: uppercase;
-            margin-bottom: 20px;
-        }
-
-        .badge-capi {
-            background: #800020;
-        }
-
-        h1 {
-            font-size: 24px;
-            color: #f3e8f8;
+            font-weight: bold;
+            display: inline-block;
             margin-bottom: 15px;
-            font-weight: 900;
         }
-
+        .badge-capi {
+            background-color: #800020;
+        }
+        h1 {
+            font-size: 22px;
+            color: #f3e8f8;
+            margin-bottom: 10px;
+        }
         p {
             color: #c8a2c8;
             font-size: 14px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-
         .buttons {
             display: flex;
             gap: 15px;
             justify-content: center;
-            width: 100%;
         }
-
         button {
-            padding: 12px 28px;
+            padding: 10px 24px;
             font-size: 16px;
-            font-weight: 700;
+            font-weight: bold;
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: all 0.2s ease;
         }
-
         #yes-btn {
             background-color: #556b2f;
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.5);
-            z-index: 10;
+            color: white;
         }
-
-        #yes-btn:hover {
-            background-color: #688339;
-            transform: scale(1.05);
-        }
-
         #no-btn {
             background-color: #800020;
-            color: #ffffff;
-            box-shadow: 0 4px 15px rgba(128, 0, 32, 0.5);
+            color: white;
+        }
+        .hidden {
+            display: none !important;
         }
     </style>
 </head>
@@ -110,9 +80,9 @@
     <div class="card" id="question-screen">
         <div class="badge">Variante Loki 👑</div>
         <h1>¿Aceptas salir conmigo? 💖</h1>
-        <p>Un propósito glorioso te espera... ¿Aceptas la misión?</p>
+        <p>Un propósito glorioso te espera...</p>
         <div class="buttons">
-            <button id="yes-btn">¡ACEPTO! 🛡️</button>
+            <button id="yes-btn">¡ACEPTO!</button>
             <button id="no-btn">No</button>
         </div>
     </div>
@@ -120,7 +90,7 @@
     <div class="card hidden" id="success-screen">
         <div class="badge badge-capi">Capitán América 🛡️</div>
         <h1>¡Misión Aceptada! 💕</h1>
-        <p>Podría hacer esto todo el día... ¡Tenemos una cita programada! ✨</p>
+        <p>¡Tenemos una cita programada! ✨</p>
     </div>
 
     <script>
@@ -129,26 +99,14 @@
         const questionScreen = document.getElementById('question-screen');
         const successScreen = document.getElementById('success-screen');
 
-        const noMessages = [
-            "No",
-            "¿Piénsalo bien, Loki?",
-            "¡Por Asgard!",
-            "Esa no es una opción...",
-            "¡Me rompes el corazón! 💔",
-            "¡Exijo un evento canónico!",
-            "¡Di que sí por favor! 🥺"
-        ];
-
+        const noMessages = ["No", "¿Segura?", "¡Por Asgard!", "Piénsalo bien", "¡Di que sí! 🥺"];
         let clickCount = 0;
 
         noBtn.addEventListener('click', () => {
             clickCount++;
             noBtn.textContent = noMessages[clickCount % noMessages.length];
-
-            const currentSize = window.getComputedStyle(yesBtn).fontSize;
-            const newSize = parseFloat(currentSize) * 1.25;
-            yesBtn.style.fontSize = `${newSize}px`;
-            yesBtn.style.padding = `${12 * (newSize/16)}px ${28 * (newSize/16)}px`;
+            const currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize * 1.25) + 'px';
         });
 
         yesBtn.addEventListener('click', () => {
