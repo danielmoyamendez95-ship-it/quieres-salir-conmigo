@@ -6,24 +6,31 @@
     <title>Misión Secreta #001 🛡️💚</title>
     <style>
         body {
-            background-color: #1a0518;
+            background: linear-gradient(135deg, #09030c 0%, #1a0518 40%, #300619 100%);
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
+            overflow: hidden;
         }
         .card {
             background-color: #120716;
             border: 3px solid #e01e84;
             padding: 30px;
-            border-radius: 20px;
+            border-radius: 24px;
             text-align: center;
             color: #ffffff;
             max-width: 380px;
             width: 90%;
-            box-shadow: 0 0 25px rgba(224, 30, 132, 0.4);
+            box-shadow: 0 0 35px rgba(224, 30, 132, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .hidden {
+            display: none !important;
         }
         .badge {
             background-color: #556b2f;
@@ -33,16 +40,21 @@
             font-size: 11px;
             text-transform: uppercase;
             font-weight: bold;
-            display: inline-block;
             margin-bottom: 15px;
+            letter-spacing: 1px;
         }
         .badge-capi {
             background-color: #800020;
         }
+        .icon-container {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 15px;
+        }
         h1 {
             font-size: 22px;
             color: #f3e8f8;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         p {
             color: #c8a2c8;
@@ -53,32 +65,50 @@
             display: flex;
             gap: 15px;
             justify-content: center;
+            width: 100%;
         }
         button {
-            padding: 10px 24px;
+            padding: 12px 26px;
             font-size: 16px;
             font-weight: bold;
             border: none;
             border-radius: 30px;
             cursor: pointer;
+            transition: all 0.2s ease;
         }
         #yes-btn {
             background-color: #556b2f;
             color: white;
+            box-shadow: 0 4px 15px rgba(85, 107, 47, 0.5);
+            z-index: 10;
         }
         #no-btn {
             background-color: #800020;
             color: white;
-        }
-        .hidden {
-            display: none !important;
+            box-shadow: 0 4px 15px rgba(128, 0, 32, 0.5);
         }
     </style>
 </head>
 <body>
 
+    <!-- Pantalla 1: Loki -->
     <div class="card" id="question-screen">
         <div class="badge">Variante Loki 👑</div>
+        <div class="icon-container">
+            <!-- Ilustración de Loki (Casco con cuernos dorados) -->
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="#120716" stroke="#556b2f" stroke-width="4"/>
+                <path d="M50 80 Q 20 20 60 40 Q 80 60 70 90 Z" fill="#ffd700" stroke="#b8860b" stroke-width="2"/>
+                <path d="M150 80 Q 180 20 140 40 Q 120 60 130 90 Z" fill="#ffd700" stroke="#b8860b" stroke-width="2"/>
+                <path d="M60 80 H 140 V 92 Q 100 105 60 92 Z" fill="#ffd700"/>
+                <circle cx="100" cy="120" r="45" fill="#fcd5ce"/>
+                <circle cx="82" cy="115" r="6" fill="#120716"/>
+                <circle cx="118" cy="115" r="6" fill="#120716"/>
+                <path d="M90 140 Q 100 150 110 140" stroke="#800020" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M55 120 Q 40 100 35 130 Q 50 140 60 130 Z" fill="#556b2f"/>
+                <path d="M145 120 Q 160 100 165 130 Q 150 140 140 130 Z" fill="#556b2f"/>
+            </svg>
+        </div>
         <h1>¿Aceptas salir conmigo? 💖</h1>
         <p>Un propósito glorioso te espera...</p>
         <div class="buttons">
@@ -87,10 +117,21 @@
         </div>
     </div>
 
+    <!-- Pantalla 2: Capitán América -->
     <div class="card hidden" id="success-screen">
         <div class="badge badge-capi">Capitán América 🛡️</div>
+        <div class="icon-container">
+            <!-- Ilustración del Escudo del Capitán América -->
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="85" fill="#800020"/>
+                <circle cx="100" cy="100" r="68" fill="#f3e8f8"/>
+                <circle cx="100" cy="100" r="51" fill="#800020"/>
+                <circle cx="100" cy="100" r="34" fill="#e01e84"/>
+                <path d="M100 78 L105 92 H120 L108 101 L112 115 L100 106 L88 115 L92 101 L80 92 H95 Z" fill="#ffffff"/>
+            </svg>
+        </div>
         <h1>¡Misión Aceptada! 💕</h1>
-        <p>¡Tenemos una cita programada! ✨</p>
+        <p>Podría hacer esto todo el día... ¡Tenemos una cita programada! ✨</p>
     </div>
 
     <script>
