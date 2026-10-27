@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #ffe6e6;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.image-container img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #ff3366;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 18px;
+    color: #555;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    min-height: 60px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#yes-btn {
+    background-color: #2ec4b6;
+    color: white;
+    box-shadow: 0 4px 15px rgba(46, 196, 182, 0.4);
+    z-index: 10;
+}
+
+#yes-btn:hover {
+    background-color: #20b2aa;
+}
+
+#no-btn {
+    background-color: #ff3366;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 51, 102, 0.4);
+}
+
+#no-btn:hover {
+    background-color: #e02456;
+}
+
+/* Estilo para los corazones flotantes de fondo cuando dice que sí */
+.floating-heart {
+    position: absolute;
+    color: #ff3366;
+    font-size: 24px;
+    animation: floatUp 1.5s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh) scale(1.5);
+        opacity: 0;
+    }
+}
