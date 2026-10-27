@@ -1,88 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>¿Quieres salir conmigo? ❤️</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres salir conmigo? 💖</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <main class="container">
-
-        <section id="question-screen" class="card">
-
-            <h1>
-                ¿Quieres salir
-                <br>
-                conmigo? ❤️
-            </h1>
-
+    <div class="container" id="main-container">
+        <!-- Pantalla de la pregunta -->
+        <div id="question-screen" class="card">
             <div class="image-container">
-
-                <div class="question-marks">
-                    ??
-                </div>
-
-                <div class="placeholder">
-                    🐘
-                </div>
-
+                <img src="https://media.giphy.com/media/3o7TKSjRrfIPjeiVyM/giphy.gif" alt="Cat asking" id="cat-img">
             </div>
-
-            <div class="buttons-container">
-
-                <button
-                    id="yes-button"
-                    class="btn yes"
-                >
-                    ¡Sí!
-                </button>
-
-                <button
-                    id="no-button"
-                    class="btn no"
-                >
-                    No
-                </button>
-
+            <h1>¿Quieres salir conmigo? 💖</h1>
+            <div class="buttons">
+                <button id="yes-btn">¡SÍ!</button>
+                <button id="no-btn">No</button>
             </div>
+        </div>
 
-        </section>
-
-
-        <section
-            id="success-screen"
-            class="card hidden"
-        >
-
-            <h1>
-                ¡Sabía que dirías que sí! ❤️
-            </h1>
-
-            <div class="celebration">
-                🥰
+        <!-- Pantalla de éxito (inicialmente oculta) -->
+        <div id="success-screen" class="card hidden">
+            <div class="image-container">
+                <img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Happy cat hug">
             </div>
-
-            <h2>
-                Entonces tenemos una cita 💕
-            </h2>
-
-        </section>
-
-    </main>
-
+            <h1>¡Sabía que dirías que sí! 💕</h1>
+            <p>Entonces tenemos una cita ✨</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
